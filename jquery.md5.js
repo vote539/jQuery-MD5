@@ -20,7 +20,15 @@
 /*jslint bitwise: true */
 /*global unescape, jQuery */
 
-(function ($) {
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+        define("jquery.md5", ["jquery"], factory);
+    } else if (typeof jQuery === 'function') {
+        factory(jQuery);
+    } else {
+        factory(this);
+    }
+})(function ($) {
     'use strict';
 
     /*
@@ -266,4 +274,4 @@
         }
     };
     
-}(typeof jQuery === 'function' ? jQuery : this));
+});
